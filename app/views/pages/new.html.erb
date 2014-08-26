@@ -1,0 +1,25 @@
+<% provide(:title, "New page") %>
+
+<div class="row">
+  <div class="col-xs 12 col-sm-12 col-md-12 col-lg12">
+    <h1>New page</h1>
+
+    <%= form_for @page do |f| %>
+      <div class="form-group">
+        <%= render "page_errors", page: f.object, prev_page: @prev_page %>
+
+        <%= f.label :title, "Page title" %>
+        <%= f.text_field :title, required: true, class: "tinymce" %>
+      </div>
+
+      <div class="form-group wikitext-edit">
+        <%= f.label :wikitext, "Page contents", class: "sr-only" %>
+
+        <%= f.text_area :wikitext, class: "tinymce", :rows => 40, :cols => 120 %>
+      </div>
+
+      <%= render "edit_controls" %>
+    <% end %>
+  </div>
+</div>
+<%= tinymce %>

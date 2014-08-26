@@ -1,0 +1,36 @@
+<div class="hidden-xs col-sm-2 sidebar">
+  <aside>
+    <div class="homelink" %>
+      <%= link_to "Home", pages_path %>
+    </div>
+
+
+    <div class="goto-page" %>
+      <%= form_tag("/", method: "get") do %>
+        <div class="input-group">
+          <%= text_field_tag(:go_to_page, nil, placeholder: "Go to page", class: "form-control input-sm") %>
+          <span class="input-group-btn">
+            <%= button_tag(type: "submit", title: "Go", class: "btn btn-default btn-sm") do%>
+              <span class="glyphicon glyphicon-chevron-right text-primary"></span>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <%= link_to new_page_path, class: "btn btn-default" do %>
+        <span class="glyphicon glyphicon-plus text-success"></span> Create a new page
+      <% end %>
+    </div>
+
+    <h1>SideBar</h1>
+    <% @pages.each do |page|%>
+    <div>
+        <p><%= link_to "#{page.title}", page_path(page)%></p>
+    </div>
+    <%end%>
+
+
+  </aside>
+</div>

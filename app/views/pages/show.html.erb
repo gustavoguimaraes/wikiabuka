@@ -1,0 +1,30 @@
+<% provide(:title, @page.title) %>
+
+<div class="row">
+
+  <%= render "sidebar" %>
+
+  <div class="col-xs-12 col-sm-10 page-content">
+    <h1><%= @page.title %></h1>
+
+    <div id="top-controls">
+      <%= render "show_controls" %>
+    </div>
+
+    <div class="formatted-page-content">
+      <%= @page.wikitext.html_safe %>
+    </div>
+
+    <div id="bottom-controls">
+      <%= render "show_controls" %>
+    </div>
+
+    <div id="timestamps">
+      <em>Created: <%= @page.created_at %> <br />
+        Last updated: <%= @page.updated_at %></em>
+    </div>
+
+    <%= render "delete_confirm" %>
+  </div>
+</div>
+
